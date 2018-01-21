@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  node1:
+    image: bitcoin-testnet-box
+    command: "bitcoind -testdir=1 -printtoconsole -debug=1 -connect=192.168.10.191:18333"
+    ports:
+      - 19000:19000
+      - 19001:19001
+
+  node2:
+    image: bitcoin-testnet-box
+    command: "bitcoind -testdir=2 -printtoconsole -debug=1 -connect=192.168.10.191:19000"
+    ports:
+      - 19010:19010
+      - 19011:19011
